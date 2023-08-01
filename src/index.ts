@@ -10,7 +10,7 @@ export interface FetchObservableOpts extends RequestInit {
 }
 
 
-export function fetchObservable(url: string, options?: FetchObservableOpts) {
+export function fetchObservable(url: string, options?: FetchObservableOpts): Observable<string> {
     const abortController = new AbortController();
     const signal = abortController.signal;
     let responseTextStream = "";
