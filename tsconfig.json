@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "outDir": "./esm",
+      "module": "ESNext",
+      "target": "ES2022",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "declaration": true,
+      "types": ["vitest/globals"]
+    },
+    "exclude": [
+      "node_modules",
+      "esm",
+    ],
+    "include": [
+        "src/index.ts",
+        "src/index.test.ts"
+    ]
+}
+  
