@@ -1,11 +1,13 @@
 # fetch-stream-observable
 [![Coverage Status](https://coveralls.io/repos/github/idiomicdev/fetch-stream-observable/badge.svg?branch=main)](https://coveralls.io/github/idiomicdev/fetch-stream-observable?branch=main)
+[![npm version](https://badge.fury.io/js/fetch-stream-observable.svg)](https://badge.fury.io/js/fetch-stream-observable)
 
 Fetch API which returns an [observable](https://www.npmjs.com/package/zen-observable). 
 
 - OpenAI stream parsing supported out of the box.
 - Gracefully degrades to calling `subscription` only once for non streaming response (`json` and `text` for eg).
 - Typescript
+- Lightweight 
 
 ## Installation
 ```

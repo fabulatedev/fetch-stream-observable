@@ -1,7 +1,7 @@
 {
   "name": "fetch-stream-observable",
-  "version": "1.0.3",
-  "description": "",
+  "version": "1.0.4",
+  "description": "Fetch with streams as an observable",
   "main": "esm/index.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@microsoft/fetch-event-source": "^2.0.1",
-    "zen-observable": "^0.10.0",
     "zen-observable-ts": "^1.1.0"
   }
 }
