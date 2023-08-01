@@ -15,6 +15,8 @@ $ npm i fetch-stream-observable
 ## Usage
 
 ```typescript
+import { fetchObservable } from 'fetch-stream-observable';
+
 fetchObservable("https://api.openai.com/v1/chat/completions", {
     headers: {
         "Content-Type": "application/json",
