@@ -69,6 +69,8 @@ export function fetchObservable(url: string, options?: FetchObservableOpts): Obs
     });
 }
 
+export default fetchObservable;
+
 function parseChunk(chunk) {
     try {
         if (chunk === '[DONE]') return;

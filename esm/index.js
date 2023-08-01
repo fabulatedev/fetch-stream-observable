@@ -53,6 +53,7 @@ export function fetchObservable(url, options) {
         });
     });
 }
+export default fetchObservable;
 function parseChunk(chunk) {
     try {
         if (chunk === '[DONE]')
