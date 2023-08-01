@@ -1,9 +1,10 @@
 {
   "name": "fetch-stream-observable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "esm/index.js",
   "module": "esm/index.js",
+  "types": "esm/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "npm run build; vitest",

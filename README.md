@@ -5,6 +5,7 @@ Fetch API which return an observable.
 
 - OpenAI stream parsing supported out of the box.
 - Gracefully degrades to calling `subscription` only once for non streaming response (`json` and `text` for eg).
+- Typescript
 
 ## Installation
 ```
