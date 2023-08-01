@@ -1,16 +1,18 @@
 {
   "name": "fetch-stream-observable",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Fetch with streams as an observable",
-  "main": "esm/index.js",
+  "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir cjs",
     "test": "npm run build; vitest",
     "test:ui": "npm run build; vitest --ui",
     "test:run": "npm run build; vitest run --coverage; npm run posttest",
-    "posttest": "cat ./coverage/lcov.info | coveralls"
+    "posttest": "cat ./coverage/lcov.info | coveralls",
+    "prepublishOnly": "npm run build:cjs"
   },
   "keywords": [],
   "author": "",
