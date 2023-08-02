@@ -33,10 +33,10 @@ fetchObservable("https://api.openai.com/v1/chat/completions", {
         // Tells openAI to send streaming response.
         stream: true, 
     }),
-    // This enables automatic parsing of open ai response.
-    parseOpenAIStream: true, 
-    // This will return an additive complete response string.
-    additiveTextStream: true, 
+    // This disables automatic parsing of open ai response.
+    doNotParseOpenAIStream: false, 
+    // This will disable returning an additive complete response string.
+    doNotConcatTextStream: false, 
 })
     .subscribe((data: string) => {
         // Logs the complete string with each event, 
