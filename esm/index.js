@@ -18,13 +18,18 @@ export function fetchObservable(url, options) {
                 ...options?.headers,
             },
             onmessage: (ev) => {
-                if (options?.parseOpenAIStream) {
-                    const { data } = ev;
-                    const chunk = parseChunk(data);
-                    responseTextStream += chunk || '';
-                    (options?.additiveTextStream)
-                        ? observer.next(responseTextStream)
-                        : observer.next(chunk);
+                if (!options?.doNotParseOpenAIStream) {
+                    try {
+                        const { data } = ev;
+                        const chunk = parseChunk(data);
+                        responseTextStream += chunk || '';
+                        (options?.doNotConcatTextStream)
+                            ? observer.next(chunk)
+                            : observer.next(responseTextStream);
+                    }
+                    catch (error) {
+                        observer.next(ev.data);
+                    }
                 }
                 else {
                     observer.next(ev.data);
@@ -64,5 +69,6 @@ function parseChunk(chunk) {
     }
     catch (error) {
         console.error('Could not JSON parse stream message', error);
+        throw new Error(error);
     }
 }

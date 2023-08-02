@@ -9,14 +9,14 @@ const plugins = [
     }),
     nodeResolve(),
     commonjs(),
-    terser(),
+   // terser(),
 ];
 
 export default [{
     input: 'src/index.ts',
     output: [
         {
-            file: 'dist/fetch-stream-observable.min.js',
+            file: 'dist/fetch-stream-observable.js',
             format: 'umd',
             name: 'fetchObservable',
         },

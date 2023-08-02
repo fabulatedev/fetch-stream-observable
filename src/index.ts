@@ -5,8 +5,8 @@ export interface FetchObservableOpts extends RequestInit {
     openWhenHidden?: boolean;
     fetch?: typeof fetch;
     headers?: Record<string, string>;
-    parseOpenAIStream?: boolean;
-    additiveTextStream?: boolean;
+    doNotParseOpenAIStream?: boolean;
+    doNotConcatTextStream?: boolean;
 }
 
 
@@ -31,13 +31,17 @@ export function fetchObservable(url: string, options?: FetchObservableOpts): Obs
                 ...options?.headers,
             },
             onmessage: (ev) => {
-                if (options?.parseOpenAIStream) {
-                    const { data } = ev;
-                    const chunk = parseChunk(data);
-                    responseTextStream += chunk || '';
-                    (options?.additiveTextStream)
-                        ? observer.next(responseTextStream)
-                        : observer.next(chunk);
+                if (!options?.doNotParseOpenAIStream) {
+                    try {
+                        const { data } = ev;
+                        const chunk = parseChunk(data);
+                        responseTextStream += chunk || '';
+                        (options?.doNotConcatTextStream)
+                            ? observer.next(chunk)
+                            : observer.next(responseTextStream);
+                    } catch (error) {
+                        observer.next(ev.data);
+                    }
                 } else {
                     observer.next(ev.data);
                 }
@@ -79,5 +83,6 @@ function parseChunk(chunk) {
         return content;
     } catch (error) {
         console.error('Could not JSON parse stream message', error);
+        throw new Error(error);
     }
 }

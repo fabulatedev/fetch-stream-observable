@@ -1,6 +1,6 @@
 {
   "name": "fetch-stream-observable",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Fetch with streams as an observable",
   "main": "dist/fetch-stream-observable.min.js",
   "module": "esm/index.js",

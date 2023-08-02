@@ -50,8 +50,6 @@ test("fetchObservable stream", () => new Promise(done => {
             frequency_penalty: 0,
             stream: true,
         }),
-        parseOpenAIStream: true,
-        additiveTextStream: true,
     })
         .subscribe((data) => {
         expect(typeof data).toBe("string");
